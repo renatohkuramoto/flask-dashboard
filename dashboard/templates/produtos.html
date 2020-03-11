@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<form>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="inputCodBarras">Código de barras</label>
+              <input type="number" class="form-control" id="inputCodBarras" placeholder="Código de barras">
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputValor">Valor unitário</label>
+              <input type="text" class="form-control" id="inputValor" placeholder="Valor unitário">
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="inputProduto">Descrição do produto</label>
+          <input type="text" class="form-control" id="inputProduto" placeholder="Descrição do produto">
+      </div>
+      <div class="form-row">
+          <div class="col-md-4 mb-3">
+              <label for="inputMedida">Unidade de medida</label>
+              <select id="inputMedida" class="form-control">
+                  <option selected>UNIDADE</option>
+                  <option>CAIXA</option>
+                  <option>QUILO</option>
+                  <option>METRO</option>
+              </select>
+          </div>
+          <div class="col-md-4 mb-3">
+              <label for="inputNCM">Código NCM</label>
+              <input type="number" class="form-control" id="inputNCM" placeholder="Código NCM">
+          </div>
+          <div class="col-md-4 mb-3">
+              <label for="inputCFOP">Código CFOP</label>
+              <input type="number" class="form-control" id="inputCFOP" placeholder="Código CFOP">
+          </div>
+      </div>
+      <button type="submit" class="btn btn-info">Consultar</button>
+      <button type="submit" class="btn btn-success">Cadastrar</button>
+      <button type="submit" class="btn btn-primary">Alterar</button>
+      <button type="submit" class="btn btn-danger">Deletar</button>
+</form>
+{% endblock %}

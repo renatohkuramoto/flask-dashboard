@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ url_for('dashboard.static', filename='images/favicon.ico') }}"> 
+    <link href="{{ url_for('dashboard.static', filename='css/css.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('dashboard.static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('dashboard.static', filename='css/style.css') }}">
+    {% block scripts %}{% endblock %}
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({{ url_for('dashboard.static', filename='images/logo.svg') }});"></a>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle new-font-size">Dashboard</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="{{ url_for('dashboard.vendas') }}">Vendas</a>
+                            </li>
+                            <li>
+                                <a href="#">Estoque</a>
+                            </li>
+                            <li>
+                                <a href="#">Financeiro</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageProdutos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle new-font-size">Produtos</a>
+                        <ul class="collapse list-unstyled" id="pageProdutos">
+                            <li>
+                                <a href="{{ url_for('dashboard.produtos') }}">Cadastro Individual</a>
+                            </li>
+                            <li>
+                                <a href="#">Cadastro por XML</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageVendas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle new-font-size">Vendas</a>
+                        <ul class="collapse list-unstyled" id="pageVendas">
+                            <li>
+                                <a href="{{ url_for('dashboard.vendas') }}">Registrar venda</a>
+                            </li>
+                            <li>
+                                <a href="#">Consultar venda</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageUsuario" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle new-font-size">Usuários</a>
+                        <ul class="collapse list-unstyled" id="pageUsuario">
+                            <li>
+                                <a href="{{ url_for('dashboard.usuarios') }}">Gerenciar usuários do sistema</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="new-font-size" href="{{ url_for('dashboard.suporte') }}">Suporte</a>
+                    </li>
+                </ul>
+
+                <div class="footer">
+                    <span>Copyright &copy;<script>document.write(new Date().getFullYear());</script></span><br/>
+                    <span>Todos os diretiros reservados</span>
+                    <span>Renato Kuramoto tecnologia.</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Menu Lateral</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link new-font-size" href="{{ url_for('dashboard.index') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link new-font-size" href="#">Vendas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link new-font-size" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h2 class="text-monospace" style="color: #666; font-size: 2rem;">{{ type }}</h2>
+            <header class="row mb-3">
+                {% block content %}
+                {% endblock %}
+            </header>
+        </div>
+    </div>
+    <script src="{{ url_for ('dashboard.static', filename='js/jquery.min.js') }}" defer></script>
+    <script src="{{ url_for ('dashboard.static', filename='js/popper.js') }}" defer></script>
+    <script src="{{ url_for ('dashboard.static', filename='js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ url_for ('dashboard.static', filename='js/main.js') }}" defer></script>
+    <script src="{{ url_for ('dashboard.static', filename='js/apexcharts.min.js') }}" defer></script>
+</body>
+
+</html>
